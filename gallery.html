@@ -94,6 +94,15 @@
                 </div>
             </div>
         </nav>
+        <!-- Loading message -->
+        <div id="loadingMessage" class="loading-message">
+            <div>
+                <div class="loader text-primary" role="status">
+                    <span class="visually-hidden">جاري التحميل...</span>
+                </div>
+                <p class="mt-3">جاري تحميل الصور، يرجى الانتظار...</p>
+            </div>
+        </div>
         <main class="container p-4 my-5">
             <header class="container text-center section-info mb-5">
                 <div class="mt-4 mb-5 text">
@@ -136,7 +145,7 @@
                     <div class="col-md-4">
                         <div class="item position-relative">
                             <img class="w-100 portfolio-img"
-                                src="images/Gallery/17-9-2024--134.jpg"
+                                src="images/Gallery/17-9-2024--186.jpg"
                                 alt="Product Image">
                         </div>
                     </div>
@@ -639,7 +648,7 @@
                             class="fa fa-phone-alt ms-2"></i>201210793401
                         +</a>
                     <p class="m-0"><i
-                            class="fa fa-envelope ms-2"></i>ameraalaa641@gmail.com</p>
+                            class="fa fa-envelope ms-2"></i>atwozcompany.1@gmail.com</p>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <h4 class="text-white text-uppercase mb-4"
@@ -705,5 +714,27 @@
         <!-- bootstrap -->
         <script
             src="bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const images = document.querySelectorAll('img[loading="lazy"]');
+                    let imagesLoaded = 0;
+        
+                    function imageLoaded() {
+                        imagesLoaded++;
+                        if (imagesLoaded === images.length) {
+                            document.getElementById("loadingMessage").classList.add("hidden");
+                        }
+                    }
+        
+                    images.forEach(img => {
+                        if (img.complete) {
+                            imageLoaded();
+                        } else {
+                            img.addEventListener('load', imageLoaded);
+                            img.addEventListener('error', imageLoaded);
+                        }
+                    });
+                });
+            </script>
     </body>
 </html>
